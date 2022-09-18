@@ -1,9 +1,4 @@
-﻿using Business.Concrete;
-using Core.Untilities;
-using DataAccess.Concrete.EntityFramework;
-using DataAccess.Concrete.InMemory;
-using Entities.Concrete;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
+﻿using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using System;
 using System.Collections.Generic;
 
@@ -15,7 +10,7 @@ namespace ConsoleUI
         {
             //   ColorandBrandId();
             //  joinsfull();
-                 AddtoCar();
+            //AddtoCar();
             //    IResultile();
             //IResultcolorAdd();
             // IResulDataBrandlist();
@@ -27,7 +22,7 @@ namespace ConsoleUI
             //{
             //    Console.WriteLine(item.Description);
             //}
-        
+
         }
 
         //private static void GetforPrice()
@@ -47,40 +42,40 @@ namespace ConsoleUI
         //    }
         //}
 
-        private static void IResulDataBrandlist()
-        {
-            BrandManager brandManager = new BrandManager(new EfBrandDal());
-            var result = brandManager.GetAllBrand();
-            if (result.Success == false)
-            {
-                Console.WriteLine(result.Message);
-            }
-            else
-            {
-                foreach (var brand in result.Data)
-                {
-                    Console.WriteLine(brand.BrandCar);
-                }
-            }
-        }
+        //private static void ıresuldatabrandlist()
+        //{
+        //    brandmanager brandmanager = new brandmanager(new efbranddal());
+        //    var result = brandmanager.getallbrand();
+        //    if (result.success == false)
+        //    {
+        //        console.writeline(result.message);
+        //    }
+        //    else
+        //    {
+        //        foreach (var brand in result.data)
+        //        {
+        //            console.writeline(brand.brandcar);
+        //        }
+        //    }
+        //}
 
-        private static void IResultcolorAdd()
-        {
-            ColorManager colorManager = new ColorManager(new EfColorDal());
-            var result = colorManager.GetColorId(2);
-            if (result.Success == false)
-            {
-                Console.WriteLine(result.Message);
-            }
-            else
-            {
-                foreach (var car in result.Data)
-                {
-                    Console.WriteLine(car.ColorCar);
-                }
+        //private static void ıresultcoloradd()
+        //{
+        //    colormanager colormanager = new colormanager(new efcolordal());
+        //    var result = colormanager.getcolorıd(2);
+        //    if (result.success == false)
+        //    {
+        //        console.writeline(result.message);
+        //    }
+        //    else
+        //    {
+        //        foreach (var car in result.data)
+        //        {
+        //            console.writeline(car.colorcar);
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         //private static void IResultile()
         //{
@@ -100,21 +95,21 @@ namespace ConsoleUI
         //    }
         //}
 
-        private static void AddtoCar()
-        {
+        //private static void AddtoCar()
+        //{
 
 
-            UserManager userManager = new UserManager(new EfUserDal());
-            userManager.Add(new User() { UserId = 1, FirstName = "RECEP", LastName = "KAPUCUOGLU", Email = "recepkapucuoglu@gmail.com", Password = "123recep" });
-            
+        //    UserManager userManager = new UserManager(new EfUserDal());
+        //    userManager.Add(new User() { UserId = 1, FirstName = "RECEP", LastName = "KAPUCUOGLU", Email = "recepkapucuoglu@gmail.com", Password = "123recep" });
 
-           
-            foreach (var item in userManager.GetAll().Data)
-            {
-                Console.WriteLine(item.UserId);
-            }
-            
-        }
+
+
+        //    foreach (var item in userManager.GetAll().Data)
+        //    {
+        //        Console.WriteLine(item.UserId);
+        //    }
+
+        //}
 
         //private static void joinsfull()
         //{

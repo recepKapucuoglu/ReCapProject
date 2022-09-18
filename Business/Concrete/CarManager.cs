@@ -1,9 +1,11 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspect.Autofac;
 using Core.CrossCuttingConcerns.Validation;
-using Core.Untilities;
+using Core.Utilities;
+using Core.Utilities.Business;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -52,12 +54,12 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.ColorId == id), Messages.MaintenanceTime);
         }
 
-
+        [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]   //ProductValidatoru kullanarak Add metunu dogrula .
 
         public IResult Add(Car car)
         {
-            var result = BusinessRules.Run(CheckIfCarLimitExceded(car.CarId));
+            var result = BusinessRules.Run(CheckIfCarLimitExceded(car.Id));
             if (result != null)
             { return result; }
             _carDal.Add(car);

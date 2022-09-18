@@ -1,10 +1,11 @@
 ﻿using Business.Abstract;
-using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
+using Core.Entities.Concrete;
+using Core.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WepAPI.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -27,16 +28,6 @@ namespace WepAPI.Controllers
             }
             return BadRequest(result.Data);
         }
-        [HttpPost("add")]
-        public IActionResult Add(User user)
-        {
-            var result = _userService.Add(user);
-            if (result.Success)
-            {
-                return Ok(result.Message);
-            }
-            else return BadRequest(result.Message);
-
-        }
+      
     }
 }

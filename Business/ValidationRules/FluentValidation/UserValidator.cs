@@ -1,4 +1,5 @@
 ﻿using Core.Aspect.Autofac;
+using Core.Entities.Concrete;
 using Entities.Concrete;
 using FluentValidation;
 using System;
