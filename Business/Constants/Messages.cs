@@ -18,11 +18,11 @@ namespace Business.Constants
         public static string CarImageNumberError="resim sayisi 5 i geçemez...";
         public static string CarListCapacity= "Maksimum ilan sayısını aşamazsınız.";
         public static string AuthorizationDenied="yetkiniz yok";
-        public static string UserRegistered="Kayıt olundu";
-        public static string UserNotFound="kullanıcı bulunamadı";
-        public static string PasswordError="parola hatalı";
-        public static string SuccessfulLogin="giriş başarılı";
-        public static string UserAlreadyExists="kullanıcı mevcut";
-        public static string AccessTokenCreated="token olusturuldu";
+        public static string UserRegistered;
+        public static string UserNotFound;
+        public static string PasswordError;
+        public static string SuccessfulLogin;
+        public static string UserAlreadyExists;
+        public static string AccessTokenCreated;
     }
 }

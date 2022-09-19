@@ -3,6 +3,8 @@ using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspect.Autofac;
+using Core.Aspect.Autofac.Caching;
+using Core.Aspect.Autofac.Performance;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities;
 using Core.Utilities.Business;
@@ -28,6 +30,10 @@ namespace Business.Concrete
             _brandService = brandService;
         }
         //constructor.
+
+
+
+        [CacheAspect] //key,value
         public IDataResult<List<Car>> getAll()
         {
             if (DateTime.Now.Hour == 19)
@@ -53,10 +59,13 @@ namespace Business.Concrete
 
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.ColorId == id), Messages.MaintenanceTime);
         }
-
+        [CacheRemoveAspect("ICarService.Get")]
         [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]   //ProductValidatoru kullanarak Add metunu dogrula .
 
+        [PerformanceAspect(5)]
+
+   
         public IResult Add(Car car)
         {
             var result = BusinessRules.Run(CheckIfCarLimitExceded(car.Id));
